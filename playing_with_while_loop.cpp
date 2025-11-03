@@ -352,3 +352,29 @@ int main (){
         i=i+1;
     }return 0;
 }
+
+
+/*D
+CD
+BCD
+ABCD*/
+#include<iostream>
+using namespace std ;
+int main (){
+    int n;
+    cout << "enter the number :";
+    cin>>n;
+    char ch = 'A';
+    int i=1;
+    while(i<=n){
+        int j=1;
+        ch='A'+n-i;
+        while(j<=i){
+            cout<<ch ;
+            ch=ch+1;
+            j=j+1;
+
+        }cout<<endl;
+        i=i+1;
+    }return 0;
+}
