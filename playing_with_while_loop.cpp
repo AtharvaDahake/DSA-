@@ -490,3 +490,34 @@ int main(){
         i=i+1;
     }
 }
+
+/*
+   1
+  23
+ 456
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n ;   
+    cin>>n;     
+    int i = 0;        
+    int count = 1;      
+    while (i <= n) {
+        int spaces = n - i;   
+        int j = 1;
+        while (spaces) {
+            cout <<" ";
+            spaces=spaces-1;
+        }
+        while (j <= i) {
+            cout << count;
+            count++;
+            j++;
+        }
+        cout << endl;
+        i++;
+    }
+}
