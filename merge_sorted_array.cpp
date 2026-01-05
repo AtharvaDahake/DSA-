@@ -44,6 +44,6 @@ int main(){
         cout<< arr1[i]<<" ";
     }cout<<endl;
     merge(arr,5,arr1,4,arr2);
-    print(arr2,8);
+    print(arr2,9);
     return 0;
 }
