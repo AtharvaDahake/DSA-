@@ -6,9 +6,20 @@ class node{
     int data;
     node*next;
 
+    // constructor
     node(int data){
         this->data=data;
         this->next=NULL;
+    }
+
+    // distructer
+    ~node(){
+        int value=this->data;
+        if(this->next!=NULL){
+        delete next;
+        this->next=NULL;
+        }
+        cout<<"memory is free "<<value<<endl; 
     }
 
 };
@@ -57,6 +68,28 @@ void insertatpossition(node* &tail,node* &head ,int position,int d){
     temp -> next = nodeToInsert;
 }
 
+void deletenode(int position,node* &head){
+    //  deletion start node ;
+    if(position == 1){
+        node* temp=head;
+        head=head->next;
+        temp->next=NULL;
+        delete temp;
+    }else{
+        // deleting middle of last node ;
+        node* curr=head;
+        node* prev=NULL;
+        int cnt=1;
+        while(cnt<position){
+            prev=curr;
+            curr=curr->next;
+            cnt++;
+        }
+        prev->next=curr->next;
+        curr->next=NULL;
+        delete curr;
+    }
+}
 
 void print(node* &head){
     node* temp=head;
@@ -101,6 +134,8 @@ int main(){
     insertatpossition(tail,head2,3,14);
     print(head2);
 
+    deletenode(3,head2);
+    print(head2);
     return 0;
  
 }
