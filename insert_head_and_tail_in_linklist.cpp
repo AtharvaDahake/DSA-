@@ -27,17 +27,36 @@ void insertAtTail(node* &tail,int d){
 
 }
 
-void insertatpossition(node* &head ,int position,int d){
-    node*temp=head;
-    int cnt=1;
-    while(cnt<position-1){
-        temp=temp->next;
+void insertatpossition(node* &tail,node* &head ,int position,int d){
+    
+    //insert at Start
+    if(position == 1) {
+        insertAtHead(head, d);
+        return;
+    }
+
+    node* temp  = head;
+    int cnt = 1;
+
+    while(cnt < position-1) {
+        temp = temp->next;
         cnt++;
     }
-    node* nodetoinsert= new node(d);
-    nodetoinsert->next=temp->next;
-    temp->next=nodetoinsert;
+
+    //inserting at Last Position
+    if(temp -> next == NULL) {
+        insertAtTail(tail,d);
+        return ;
+    }
+
+    //creating a node for d
+    node* nodeToInsert = new node(d);
+
+    nodeToInsert -> next = temp -> next;
+
+    temp -> next = nodeToInsert;
 }
+
 
 void print(node* &head){
     node* temp=head;
@@ -77,11 +96,11 @@ int main(){
     // node* head2= node2;
     // node* tail = node2;
     print(head2);
-    insertatpossition(head2,2,13);
+    insertatpossition(tail,head2,2,13);
     print(head2);
-    insertatpossition(head2,3,14);
+    insertatpossition(tail,head2,3,14);
     print(head2);
 
     return 0;
-
+ 
 }
